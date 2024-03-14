@@ -1,0 +1,1154 @@
+Program.Sub.ScreenSU.Start
+Gui.Main..Create
+Gui.Main..Caption("Non-Nettable Bin")
+Gui.Main..Size(15360,10485)
+Gui.Main..MinX(0)
+Gui.Main..MinY(0)
+Gui.Main..Position(0,0)
+Gui.Main..BackColor(-2147483633)
+Gui.Main..MousePointer(0)
+Gui.Main..Event(UnLoad,Main_UnLoad)
+Gui.Main.cmdNew.Create(Button)
+Gui.Main.cmdNew.Size(855,375)
+Gui.Main.cmdNew.Position(195,120)
+Gui.Main.cmdNew.Caption("New")
+Gui.Main.cmdNew.Event(Click,New)
+Gui.Main.cmdNew.TabStop(True)
+Gui.Main.cmdNew.TabIndex(1)
+Gui.Main.txtPart.Create(TextBox,"",True,1365,300,0,900,630,True,0,"Arial",8,-2147483643,1)
+Gui.Main.txtPart.TabStop(True)
+Gui.Main.txtPart.TabIndex(2)
+Gui.Main.txtPart.Event(LostFocus,LostFocus)
+Gui.Main.txtPart.Event(Change,Change)
+Gui.Main.txtLoc.Create(TextBox,"",True,360,300,0,2850,630,True,0,"Arial",8,-2147483643,1)
+Gui.Main.txtLoc.TabStop(True)
+Gui.Main.txtLoc.TabIndex(3)
+Gui.Main.txtLoc.Event(LostFocus,LostFocus)
+Gui.Main.txtLoc.Event(Change,Change)
+Gui.Main.lblPart.Create(Label,"Part",True,420,255,0,435,720,True,0,"Arial",8,-2147483633,0)
+Gui.Main.lblLoc.Create(Label,"Loc",True,375,255,0,2475,720,True,0,"Arial",8,-2147483633,0)
+Gui.Main.lblDescr.Create(Label,"Description",True,915,255,0,6840,720,True,0,"Arial",8,-2147483633,0)
+Gui.Main.txtDescr.Create(TextBox,"",True,3105,300,0,7800,630,True,0,"Arial",8,-2147483643,1)
+Gui.Main.txtDescr.TabStop(True)
+Gui.Main.txtDescr.TabIndex(6)
+Gui.Main.txtDescr.Locked(True)
+Gui.Main.lblQty.Create(Label,"Qty",True,390,255,0,11010,720,True,0,"Arial",8,-2147483633,0)
+Gui.Main.txtQty.Create(TextBox,"",True,900,300,0,11415,630,True,0,"Arial",8,-2147483643,1)
+Gui.Main.txtQty.TabStop(True)
+Gui.Main.txtQty.TabIndex(7)
+Gui.Main.txtQty.Locked(True)
+Gui.Main.txtBin.Create(TextBox,"",True,1215,300,0,5445,630,True,0,"Arial",8,-2147483643,1)
+Gui.Main.txtBin.TabStop(True)
+Gui.Main.txtBin.TabIndex(5)
+Gui.Main.txtBin.Event(LostFocus,LostFocus)
+Gui.Main.txtBin.Event(Change,Change)
+Gui.Main.lblBin.Create(Label,"Bin",True,330,255,0,5115,720,True,0,"Arial",8,-2147483633,0)
+Gui.Main.txtLot.Create(TextBox,"",True,1215,300,0,3780,630,True,0,"Arial",8,-2147483643,1)
+Gui.Main.txtLot.TabStop(True)
+Gui.Main.txtLot.TabIndex(4)
+Gui.Main.txtLot.Event(LostFocus,LostFocus)
+Gui.Main.txtLot.Event(Change,Change)
+Gui.Main.lblLot.Create(Label,"Lot",True,330,255,0,3435,720,True,0,"Arial",8,-2147483633,0)
+Gui.Main.lblHeat.Create(Label,"Heat",True,450,255,0,12390,720,True,0,"Arial",8,-2147483633,0)
+Gui.Main.txtHeat.Create(TextBox,"",True,1245,300,0,12870,630,True,0,"Arial",8,-2147483643,1)
+Gui.Main.txtHeat.TabStop(True)
+Gui.Main.txtHeat.TabIndex(8)
+Gui.Main.txtHeat.Locked(True)
+Gui.Main.GsMain.Create(GsGridControl)
+Gui.Main.GsMain.Size(15075,8280)
+Gui.Main.GsMain.Position(90,1080)
+Gui.Main.GsMain.Event(RowCellClick,OnXClick)
+Gui.Main.cmdTransfer.Create(Button)
+Gui.Main.cmdTransfer.Size(855,375)
+Gui.Main.cmdTransfer.Position(135,9525)
+Gui.Main.cmdTransfer.Caption("Transfer")
+Gui.Main.cmdTransfer.TabStop(True)
+Gui.Main.cmdTransfer.TabIndex(9)
+Gui.Main.cmdTransfer.Event(Click,TransferBack)
+Gui.Main.cmdHistory.Create(Button)
+Gui.Main.cmdHistory.Size(855,375)
+Gui.Main.cmdHistory.Position(1065,9525)
+Gui.Main.cmdHistory.TabStop(True)
+Gui.Main.cmdHistory.TabIndex(9)
+Gui.Main.cmdHistory.Caption("History")
+Gui.Main.cmdHistory.Event(Click,History)
+Gui.Main.lbl1.Create(Label,"Transferring Back...",False,1545,255,0,1155,255,True,1,"Arial",8,-2147483633,0)
+Gui.Main.progressBar1.Create(ProgressBar)
+Gui.Main.progressBar1.Visible(False)
+Gui.Main.progressBar1.Size(3735,255)
+Gui.Main.progressBar1.Position(2775,165)
+Gui.SelectBINs..Create
+Gui.SelectBINs..Size(12975,9555)
+Gui.SelectBINs..MinX(0)
+Gui.SelectBINs..MinY(0)
+Gui.SelectBINs..Position(0,0)
+Gui.SelectBINs..BackColor(-2147483633)
+Gui.SelectBINs..MousePointer(0)
+Gui.SelectBINs..Caption("Select BINS")
+Gui.SelectBINs..Event(UnLoad,Cancel)
+Gui.SelectBINs.GsGridControl1.Create(GsGridControl)
+Gui.SelectBINs.GsGridControl1.Size(12765,7845)
+Gui.SelectBINs.GsGridControl1.Position(60,615)
+Gui.SelectBINs.GsGridControl1.Anchor(13)
+Gui.SelectBINs.GsGridControl1.Event(CellValueChanged,QuantityChanged)
+Gui.SelectBINs.cmdDeselectAll.Create(Button)
+Gui.SelectBINs.cmdDeselectAll.Size(1230,375)
+Gui.SelectBINs.cmdDeselectAll.Position(8925,8655)
+Gui.SelectBINs.cmdDeselectAll.Caption("Reset")
+Gui.SelectBINs.cmdDeselectAll.Event(Click,Reset)
+Gui.SelectBINs.cmdDone.Create(Button)
+Gui.SelectBINs.cmdDone.Size(1230,375)
+Gui.SelectBINs.cmdDone.Position(10245,8655)
+Gui.SelectBINs.cmdDone.Caption("Done")
+Gui.SelectBINs.cmdDone.Event(Click,Done)
+Gui.SelectBINs.cmdCancel.Create(Button)
+Gui.SelectBINs.cmdCancel.Size(1230,375)
+Gui.SelectBINs.cmdCancel.Position(11550,8655)
+Gui.SelectBINs.cmdCancel.Caption("Cancel")
+Gui.SelectBINs.cmdCancel.Event(Click,Cancel)
+Gui.SelectBINs.progressBar1.Create(ProgressBar)
+Gui.SelectBINs.progressBar1.Visible(False)
+Gui.SelectBINs.progressBar1.Size(3945,240)
+Gui.SelectBINs.progressBar1.Position(2430,180)
+Gui.SelectBINs.progressBar1.Max(100)
+Gui.SelectBINs.lbl1.Create(Label,"Transferring to NonNettable...",False,2235,255,0,150,270,True,0,"Arial",8,-2147483633,0)
+Gui.FormHistory..Create
+Gui.FormHistory..Caption("History")
+Gui.FormHistory..Size(10875,9420)
+Gui.FormHistory..MinX(0)
+Gui.FormHistory..MinY(0)
+Gui.FormHistory..Position(0,0)
+Gui.FormHistory..BackColor(-2147483633)
+Gui.FormHistory..MousePointer(0)
+Gui.FormHistory..Event(UnLoad,UnLoad_History)
+Gui.FormHistory..AlwaysOnTop(True)
+Gui.FormHistory.GsGridControl1.Create(GsGridControl)
+Gui.FormHistory.GsGridControl1.Size(10665,8970)
+Gui.FormHistory.GsGridControl1.Position(45,45)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+v.Global.bUsesLotBinCosting.Declare
+
+'OPTION ID: 400400
+'OPTION SEQ: 0000
+
+f.Global.General.ReadOption("400400",0,False,v.Global.bUsesLotBinCosting)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+	F.Intrinsic.Control.Try
+		v.Local.sError.Declare
+	
+		V.Global.bTopTxtBoxesHaveChanged.Declare
+		V.Global.sNewLoc.Declare
+		V.Global.bBusy.Declare
+		
+		V.Global.bBusy.Set(True)
+		
+		'Main database connection
+		F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN, V.Ambient.PUser,V.Ambient.PPass)
+		
+		F.Intrinsic.Control.CallSub(CreateTableIf)
+		
+		'Get NonNettable Location
+		F.ODBC.Connection!con.OpenRecordSetRO("rstLoc", "Select Loc From GAB_5696_NonNB")
+		F.ODBC.con!rstLoc.Record2String(V.Global.sNewLoc)
+		F.ODBC.con!rstLoc.Close
+		
+		F.Intrinsic.Control.CallSub(LoadDTNonNB)
+				
+		F.Intrinsic.Control.CallSub(CreateContextMenus)
+		
+		V.Global.bBusy.Set(False)
+		
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub("Main_Unload")
+	F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.CreateTableIf.Start
+	F.Intrinsic.Control.Try
+		v.Local.sError.Declare
+		
+		V.Local.sNonLoc.Declare
+		V.Local.sPSQL.Declare
+		V.Local.bValidLoc.Declare
+		
+		'Create Table GAB_5696_NonNB if table does not exist
+		V.Local.bTableExists.Declare(boolean)
+		F.ODBC.Connection!con.TableExists("GAB_5696_NonNB", V.Local.bTableExists)
+		F.Intrinsic.Control.If(V.Local.bTableExists, =, False)
+			F.ODBC.Connection!con.Execute("CREATE TABLE GAB_5696_NonNB ( Loc CHAR(2) )")
+			
+			'Prompt user for NonNB location
+			F.Intrinsic.Control.DoUntil(V.Local.bValidLoc)
+				F.Intrinsic.UI.Inputbox("Enter NonNettable Location", "Creating NonNettable Table", "NN", V.Local.sNonLoc)
+				
+				F.Intrinsic.Control.If(V.Local.sNonLoc.Length,=,2)
+					V.Local.bValidLoc.Set(True)
+				F.Intrinsic.Control.ElseIf(V.Local.sNonLoc, =, "***CANCEL***")
+					F.ODBC.Connection!con.Execute("DROP TABLE GAB_5696_NonNB")
+					F.Intrinsic.Control.End
+				F.Intrinsic.Control.Else
+					F.Intrinsic.UI.Msgbox("Invalid Location")
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Loop
+			
+			F.Intrinsic.String.Build("INSERT INTO GAB_5696_NonNB (Loc) VALUES ('{0}')", V.Local.sNonLoc, V.Local.sPSQL)
+			F.ODBC.Connection!con.Execute(V.Local.sPSQL)
+			
+		F.Intrinsic.Control.EndIf
+		
+		'Create Table GAB_5969_Notes if table does not exist
+		F.ODBC.Connection!con.TableExists("GAB_5696_Notes", V.Local.bTableExists)
+		F.Intrinsic.Control.If(V.Local.bTableExists, =, False)
+		'ADD QTY PART BIN LOC
+			F.ODBC.Connection!con.Execute("CREATE TABLE GAB_5696_Notes ( Date_Made TIMESTAMP, UserID Char(15), Part Char(20), Loc Char(2), Bin Char(6), Quantity Numeric(30,15), Notes Char(100) )")
+		F.Intrinsic.Control.EndIf
+		
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub("Main_Unload")
+	F.Intrinsic.Control.EndTry
+Program.Sub.CreateTableIf.End
+
+Program.Sub.LoadDTNonNB.Start
+	F.Intrinsic.Control.Try
+		v.Local.sError.Declare
+		
+		V.Local.sQuery.Declare
+		
+		'Select NonNettable Bins to display in Main Table
+		F.Intrinsic.String.Build("Select RTrim(Part) as Part, Location, Quantity, RTrim(Bin) as Bin, RTrim(Lot) as Lot, RTrim(Heat) as Heat, RTrim(Serial_Number) as Serial_Number, User_Field_1 from V_Item_Master where Location = '{0}' and Bin != '' and Quantity <> 0", V.Global.sNewLoc, V.Local.sQuery)
+		F.Data.DataTable.CreateFromSQL("dtNonNB", "con", V.Local.sQuery, True)
+		
+		'Add Column for toggling whether or not to transfer back
+		F.Data.DataTable.AddColumn("dtNonNB", "X", "boolean", False)
+		
+		F.Intrinsic.Control.CallSub(LoadgvDTNonNB)
+		
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub("Main_Unload")
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadDTNonNB.End
+
+Program.Sub.LoadgvDTNonNB.Start
+	F.Intrinsic.Control.Try
+		v.Local.sError.Declare
+		
+		Gui.Main.GsMain.AddGridviewFromDatatable("gvNonNB","dtNonNB")
+		
+		'Quantity
+		Gui.Main.GsMain.SetColumnProperty("gvNonNB", "Quantity", "DisplayCustomNumeric", "0.")
+		
+		'Width
+		Gui.Main.GsMain.SetColumnProperty("gvNonNB", "Location", "Width", "35")
+		Gui.Main.GsMain.SetColumnProperty("gvNonNB", "X", "Width", "1")
+		
+		'Allow Edit
+		Gui.Main.GsMain.SetColumnProperty("gvNonNB", "Part", "AllowEdit", "False")
+		Gui.Main.GsMain.SetColumnProperty("gvNonNB", "Location", "AllowEdit", "False")
+		Gui.Main.GsMain.SetColumnProperty("gvNonNB", "Quantity", "AllowEdit", "False")
+		Gui.Main.GsMain.SetColumnProperty("gvNonNB", "Bin", "AllowEdit", "False")
+		Gui.Main.GsMain.SetColumnProperty("gvNonNB", "Lot", "AllowEdit", "False")
+		Gui.Main.GsMain.SetColumnProperty("gvNonNB", "Heat", "AllowEdit", "False")
+		Gui.Main.GsMain.SetColumnProperty("gvNonNB", "Serial_Number", "AllowEdit", "False")
+		Gui.Main.GsMain.SetColumnProperty("gvNonNB", "User_Field_1", "AllowEdit", "False")
+		Gui.Main.GsMain.SetColumnProperty("gvNonNB", "X", "AllowEdit", "False")
+		
+		'Caption
+		Gui.Main.GsMain.SetColumnProperty("gvNonNB", "Serial_Number", "Caption", "Serial Number")
+		Gui.Main.GsMain.SetColumnProperty("gvNonNB", "User_Field_1", "Caption", "Original Location")
+		Gui.Main.GsMain.SetColumnProperty("gvNonNB", "X", "Caption", " ")
+		
+		Gui.Main.GsMain.MainView("gvNonNB")
+		
+		Gui.Main..Show
+		
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub("Main_Unload")
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadgvDTNonNB.End
+
+Program.Sub.CreateContextMenus.Start
+	f.Intrinsic.Control.Try	
+		v.Local.sError.Declare
+		
+		'Add Refresh on Main GridControl
+		Gui.Main..ContextMenuCreate("ctxJobCommitments")
+		Gui.Main..ContextMenuAddItem("ctxJobCommitments","Refresh",0,"Refresh")	
+		Gui.Main..ContextMenuSetItemEventHandler("ctxJobCommitments","Refresh","Refresh")
+		
+		Gui.Main.GsMain.ContextMenuAttach("ctxJobCommitments")
+		
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}GAB Version: {5}}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		f.Intrinsic.Control.CallSub("Main_Unload")
+	F.Intrinsic.Control.EndTry	
+Program.Sub.CreateContextMenus.End
+
+Program.Sub.Refresh.Start
+	F.Intrinsic.Control.Try
+		F.Intrinsic.Control.If(V.Global.bBusy, =, False)
+			V.Global.bBusy.Set(True)
+			
+			V.Local.sError.Declare
+			
+			'Re-Create and Display Main Datatable of NonNettable Bins
+			F.Intrinsic.Control.If(V.DataTable.dtNonNB.Exists)
+				F.Data.DataTable.Close("dtNonNB")
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.CallSub("LoadDTNonNB")
+		
+			V.Global.bBusy.Set(False)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}GAB Version: {5}}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		f.Intrinsic.Control.CallSub("Main_Unload")
+	F.Intrinsic.Control.EndTry
+Program.Sub.Refresh.End
+
+Program.Sub.New.Start
+	F.Intrinsic.Control.Try
+		F.Intrinsic.Control.If(V.Global.bBusy, =, False)
+			V.Global.bBusy.Set(True)
+			
+			v.Local.sError.Declare
+		
+			V.Local.sRet.Declare
+			V.Local.sQuery.Declare
+			V.Global.sPart.Declare
+			V.Global.sLoc.Declare
+			
+			'MiniBrowser to Select Part to Transfer to NonNettable
+			F.Intrinsic.String.Build("Select Part, Description, Location from V_Inventory_Mstr where Location != '{0}'", V.Global.sNewLoc, V.Local.sQuery)
+			F.Intrinsic.Control.If(V.Screen.Main!txtPart.Text, <>, "")
+				F.Intrinsic.String.Build("{0} and Part = '{1}'", V.Local.sQuery, V.Screen.Main!txtPart.Text, V.Local.sQuery)
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.Screen.Main!txtLoc.Text, <>, "")
+				F.Intrinsic.String.Build("{0} and Location = '{1}'", V.Local.sQuery, V.Screen.Main!txtLoc.Text, V.Local.sQuery)
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.UI.MiniBrowser("Select a Part", "con", V.Local.sQuery, "Part*!*Description*!*Location", "50*!*70*!*20", V.Local.sRet)
+					
+			'Create Bin and Quantity GridControl for User to enter transfer quanitities if the user selected a part
+			F.Intrinsic.Control.If(V.Local.sRet, !=, "***CANCEL***")
+						
+				F.Intrinsic.String.Split(V.Local.sRet, "*!*", V.Local.sRet)		
+				V.Global.sPart.Set(V.Local.sRet(0))
+				V.Global.sLoc.Set(v.Local.sRet(2))
+				
+				F.Intrinsic.Control.If(V.DataTable.dtBinSelect.Exists)
+					F.Data.DataTable.Close("dtBinSelect")
+				F.Intrinsic.Control.EndIf
+				
+				F.Intrinsic.String.Build("Select RTrim(Part) as Part, RTrim(Location) as Location, RTrim(Bin) as Bin, Quantity, RTrim(Lot) as Lot, RTrim(Heat) as Heat, RTrim(Serial_Number) as 'Serial_Number' from V_Item_Master where Part = '{0}' and Location != '{1}' and Bin != ''", V.Global.sPart.Trim, V.Global.sNewLoc.Trim, V.Local.sQuery)
+				F.Data.DataTable.CreateFromSQL("dtBinSelect", "con", V.Local.sQuery, True)
+				F.Data.DataTable.AddColumn("dtBinSelect","TransferQty", "Float", 0.0)
+				F.Data.DataTable.AddColumn("dtBinSelect","Notes","String", "")
+	
+				'Only run if the part is a Lot/Bin Part
+				F.Intrinsic.Control.If(V.DataTable.dtBinSelect.RowCount, =, 0)
+					F.Intrinsic.UI.Msgbox("No Bins for that part")
+					F.Intrinsic.Control.CallSub(New)
+				F.Intrinsic.Control.Else
+					F.Intrinsic.Control.CallSub(LoadgvBinSelect)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.EndIf
+			
+			V.Global.bBusy.Set(False)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub("Main_Unload")
+	F.Intrinsic.Control.EndTry
+Program.Sub.New.End
+
+Program.Sub.LoadgvBinSelect.Start
+	F.Intrinsic.Control.Try
+		v.Local.sError.Declare
+	
+		Gui.SelectBINs.GsGridControl1.AddGridviewFromDatatable("gvBinSelect", "dtBinSelect")
+		
+		'Column Format
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Quantity", "DisplayCustomNumeric", "0.")
+		
+		'Width
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Part", "Width", 30)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Location", "Width", 5)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Bin", "Width", 25)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Quantity", "Width", 20)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Lot", "Width", 25)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Heat", "Width", 25)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Serial_Number", "Width", 35)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "TransferQty", "Width", 27)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Notes", "Width", 50)
+		
+		'TabStop
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect","Part","TabStop", False)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect","Location","TabStop", False)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect","Bin","TabStop", False)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect","Quantity","TabStop", False)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect","Lot","TabStop", False)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect","Heat","TabStop", False)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect","Serial_Number","TabStop", False)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect","TransferQty","TabStop", True)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect","Notes","TabStop", True)
+		
+		'AllowEdit
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Part", "AllowEdit", False)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Location", "AllowEdit", False)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Bin", "AllowEdit", False)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Quantity", "AllowEdit", False)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Lot", "AllowEdit", False)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Heat", "AllowEdit", False)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Serial_Number", "AllowEdit", False)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "TransferQty", "AllowEdit", True)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Notes", "AllowEdit", True)
+		
+		'ReadOnly
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Part", "ReadOnly", True)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Location", "ReadOnly", True)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Bin", "ReadOnly", True)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Quantity", "ReadOnly", True)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Lot", "ReadOnly", True)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Heat", "ReadOnly", True)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Serial_Number", "ReadOnly", True)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "TransferQty", "ReadOnly", False)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Notes", "ReadOnly", False)
+		
+		'Header
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "TransferQty", "Caption", "Transfer Qty")
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Location", "Caption", "Loc")
+		
+		'TransferQty Column
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "TransferQty", "HeaderFontBold", True)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "TransferQty", "CellBackColor", "LightYellow")
+
+		'Notes Column
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Notes", "HeaderFontBold", True)
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Notes", "CellBackColor", "LightYellow")
+
+		'Quantity Column
+		Gui.SelectBINs.GsGridControl1.SetColumnProperty("gvBinSelect", "Quantity", "CellHAlignment", "Near")
+
+		Gui.SelectBINs.GsGridControl1.MainView("gvBinSelect")
+		
+		Gui.SelectBINs..Show
+		
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub("Main_Unload")
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadgvBinSelect.End
+
+Program.Sub.QuantityChanged.Start
+	F.Intrinsic.Control.Try
+		v.Local.sError.Declare
+		
+		V.Local.iColumnIndex.Declare
+		V.Local.i.Declare
+		
+		F.Intrinsic.Control.If(V.Args.Column, =, "TransferQty")
+			Gui.SelectBINs.GsGridControl1.SuspendLayout
+			
+			'Turn row green if the quantity being transfered is greater than 0
+			F.Intrinsic.Control.If(V.Args.Value, >, V.DataTable.dtBinSelect(V.Args.RowIndex).Quantity!FIELDVAL)
+			
+				'Transferring too much: Set Value back to 0, Print Error Message
+				F.Intrinsic.UI.Msgbox("Transferring too much")
+				F.Data.DataTable.SetValue("dtBinSelect", V.Args.RowIndex, "TransferQty", 0)
+				
+			F.Intrinsic.Control.ElseIf(V.Args.Value, <, 0)
+				
+				'Transferring negative: Set Value back to 0, Print Error Message
+				F.Intrinsic.UI.Msgbox("Can't transfer negative")
+				F.Data.DataTable.SetValue("dtBinSelect", V.Args.RowIndex, "TransferQty", 0)
+				
+'				F.Intrinsic.Control.For(V.Local.i, 0,6,1)
+'					Gui.SelectBINs.GsGridControl1.SetCellAppearance("gvBinSelect", V.Local.i, V.Args.RowIndex, "BackColor", "DarkSalmon")
+'				F.Intrinsic.Control.Next(V.Local.i)
+
+			F.Intrinsic.Control.ElseIf(V.Args.Value, >, 0)
+				
+				F.Intrinsic.Control.For(V.Local.i, 0,6,1)
+					Gui.SelectBINs.GsGridControl1.SetCellAppearance("gvBinSelect", V.Local.i, V.Args.RowIndex, "BackColor", "LightGreen")
+				F.Intrinsic.Control.Next(V.Local.i)
+				
+			F.Intrinsic.Control.Else
+			
+				F.Intrinsic.Control.For(V.Local.i, 0,6,1)
+					Gui.SelectBINs.GsGridControl1.SetCellAppearance("gvBinSelect", V.Local.i, V.Args.RowIndex, "BackColor", "White")
+				F.Intrinsic.Control.Next(V.Local.i)
+				
+			F.Intrinsic.Control.EndIf
+			
+			Gui.SelectBINs.GsGridControl1.ResumeLayout
+		F.Intrinsic.Control.EndIf
+		
+		
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub("Main_Unload")
+	F.Intrinsic.Control.EndTry
+Program.Sub.QuantityChanged.End
+
+Program.Sub.Done.Start
+
+	F.Intrinsic.Control.Try
+		F.Intrinsic.Control.If(V.Global.bBusy, =, False)
+			V.Global.bBusy.Set(True)
+			
+			
+			v.Local.sError.Declare
+			
+			V.Local.i.Declare
+			V.Local.iRowCount.Declare
+			
+			Gui.SelectBINs.progressBar1.Value(0)
+			Gui.SelectBINs.progressBar1.Visible(True)
+			Gui.SelectBINs.lbl1.Visible(True)
+			Gui.SelectBINs.progressBar1.Value(10)
+			
+			'Create NonNettable version of part - same part but different location
+			F.Intrinsic.Control.CallSub(CreateDuplicatePart)
+						
+			'Select only datatables with quantities not equal to 0
+			F.Data.DataView.Create("dtBinSelect", "dvBinSelect", 22, "TransferQty <> 0", "")		
+			F.Data.DataView.ToDataTable("dtBinSelect", "dvBinSelect", "dtBinsAndQty", True)
+			
+			F.Intrinsic.Control.If(V.DataTable.dtBinsAndQty.RowCount, >, 0)
+				
+				'Create NonNettable version of bins - same bin but different location
+				F.Intrinsic.Control.CallSub(CreateBins)
+				
+				Gui.SelectBINs.progressBar1.Value(50)
+				
+				'Make Issue in Original Part and Receipt in NonNettable Part
+				F.Intrinsic.Control.CallSub(TransferQty)
+				
+				Gui.SelectBINs.progressBar1.Value(90)
+			
+			F.Intrinsic.Control.EndIf
+			
+			F.Data.DataTable.Close("dtBinsAndQty")
+			F.Data.DataTable.Close("dtBinSelect")
+			
+			Gui.SelectBINs.progressBar1.Value(100)
+			Gui.SelectBINs..Visible(False)
+			Gui.SelectBINs.progressBar1.Visible(False)
+			Gui.SelectBINs.lbl1.Visible(False)
+			
+			V.Global.bBusy.Set(False)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub("Main_Unload")
+	F.Intrinsic.Control.EndTry
+Program.Sub.Done.End
+
+Program.Sub.CreateDuplicatePart.Start
+	F.Intrinsic.Control.Try
+		V.Local.sError.Declare
+		
+		V.Local.sQuery.Declare
+		V.Global.sPartInfo.Declare
+		V.Local.sPSQL.Declare
+		V.Local.sExists.Declare
+		
+		Gui.SelectBINs.progressBar1.Value(20)
+		
+		'Get Original Part Info
+		F.Intrinsic.String.Concat("Select * from V_INVENTORY_MSTR where Part = '",V.Global.sPart.Trim, "' and Location = '", V.Global.sLoc.Trim, "'", V.Local.sQuery)
+		F.ODBC.Connection!con.OpenRecordSetRO("rstPartInfo", V.Local.sQuery)
+		F.ODBC.con!rstPartInfo.Record2String(V.Global.sPartInfo)
+		F.ODBC.con!rstPartInfo.Close
+		
+		Gui.SelectBINs.progressBar1.Value(30)
+		
+		'0 - Part; 1 - Location; 3 - PL; 6 - Description; 7 - UM; 16 - Price
+		F.Intrinsic.String.Split(V.Global.sPartInfo, "*!*", V.Global.sPartInfo)
+		
+		Gui.SelectBINs.progressBar1.Value(40)
+
+		'If NonNettable version of part does not exist, make it exist		
+		F.Global.Inventory.GetPartInfo(V.Global.sPart, V.Global.sNewLoc, V.Local.sExists)
+		F.Intrinsic.Control.If(V.Local.sExists, =, "***NOPARTFOUND***")
+			F.Global.Inventory.CreatePart(V.Global.sPartInfo(0),V.Global.sPartInfo(7),V.Global.sPartInfo(5),V.Global.sNewLoc,V.Global.sPartInfo(3),"C","","",V.Global.sPartInfo(16),"NOMAINT ")
+			F.Intrinsic.String.Build("UPDATE INVENTORY_MSTR set FLAG_LOT = 'Y' where Part = '{0}' and Location = '{1}'", V.Global.sPartInfo(0).Trim, V.Global.sNewLoc, V.Local.sPSQL)
+			F.ODBC.Connection!con.Execute(V.Local.sPSQL)
+			f.Intrinsic.Control.CallSub(UpdateCostofNewPart)
+		F.Intrinsic.Control.EndIf
+		
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub("Main_Unload")
+	F.Intrinsic.Control.EndTry
+Program.Sub.CreateDuplicatePart.End
+
+Program.Sub.CreateBins.Start
+	F.Intrinsic.Control.Try
+		V.Local.sError.Declare
+
+		V.Local.sExistingBins.Declare
+		V.Local.sFileText.Declare
+		V.Local.sFilePath.Declare
+		V.Local.sFilter.Declare
+		V.Local.sQuery.Declare
+		V.Local.i.Declare
+		V.Local.sBin.Declare
+		
+		'Create PSQL statement which will select all NonNettable Bins that already exist
+		F.Intrinsic.Control.For(V.Local.i,0,V.DataTable.dtBinsAndQty.RowCount--,1)
+			F.Intrinsic.Control.If(V.Local.sQuery, =, "")
+				F.Intrinsic.String.Build("Select BIN from BIN_MASTER where Location = '{0}' and (BIN = '{1}'", V.Global.sNewLoc, V.DataTable.dtBinsAndQty(V.Local.i).Bin!FieldVal, V.Local.sQuery)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.String.Build("{0} or BIN = '{1}'", V.Local.sQuery, V.DataTable.dtBinsAndQty(V.Local.i).Bin!FieldVal, V.Local.sQuery)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Next(V.Local.i)
+		F.Intrinsic.String.Concat(V.Local.sQuery, ")", V.Local.sQuery)
+
+		V.Local.sFilter.Set("TransferQty > 0")
+		
+		F.Intrinsic.Control.If(V.Local.sQuery, !=, "")
+			F.ODBC.Connection!con.OpenRecordsetRO("rstExistingBINS", V.Local.sQuery)
+			F.ODBC.con!rstExistingBINS.Record2String(V.Local.sExistingBins)
+			
+			'Adjust Filter to filter out NonNettable bins that already exist
+			F.Intrinsic.Control.If(V.Local.sExistingBins, !=, "***NORETURN***")
+				F.Intrinsic.String.Split(V.Local.sExistingBins, "*!*", V.Local.sExistingBins)
+				F.Intrinsic.Control.For(V.Local.i, 0, V.Local.sExistingBins.UBound)		
+					F.Intrinsic.String.Build("{0} and BIN <> '{1}'", V.Local.sFilter, V.Local.sExistingBins(V.Local.i), V.Local.sFilter)
+				F.Intrinsic.Control.Next(V.Local.i)
+			F.Intrinsic.Control.EndIf
+			
+			F.ODBC.con!rstExistingBINS.Close
+		F.Intrinsic.Control.EndIf
+		
+		'Select Bins with TransferQty <> 0 and that don't have a NonNettable form
+		F.Data.DataView.Create("dtBinsAndQty", "dvBinsAndQty", 22, V.Local.sFilter, "")	
+		F.Data.DataView.ToDataTable("dtBinsAndQty", "dvBinsAndQty", "dtBinsAndQtyND")
+		
+		'Insert new bin locations into the bin master
+		F.Intrinsic.Control.If(V.DataTable.dtBinsAndQtyND.RowCount, >, 0)
+			F.Intrinsic.Control.For(V.Local.i,0,V.DataTable.dtBinsAndQtyND.RowCount--)
+				Function.Intrinsic.String.Format(V.DataTable.dtBinsAndQtyND(V.Local.i).Bin!FieldVal,"!@@@@@@",V.Local.sBin)
+				F.Intrinsic.String.Build("SELECT * FROM BIN_MASTER WHERE BIN = '{0}' AND LOCATION = '{1}'",v.Local.sBin,V.Global.sNewLoc,V.Local.sQuery)
+				F.Data.DataTable.CreateFromSQL("dtBinExists","con",V.Local.sQuery,True)
+				F.Intrinsic.Control.If(V.DataTable.dtBinExists.RowCount--,>,-1)
+				F.Intrinsic.Control.Else
+					F.Intrinsic.String.Build("INSERT INTO BIN_MASTER VALUES ('{0}','{1}','NON-NETTABLE BIN','');",V.Local.sBin,V.Global.sNewLoc,V.Local.sQuery)
+					F.ODBC.Connection!con.EXECUTE(V.Local.sQuery)
+				F.Intrinsic.Control.EndIf
+				F.Data.DataTable.Close("dtBinExists")
+			F.Intrinsic.Control.Next(V.Local.i)		
+		F.Intrinsic.Control.EndIf
+
+		F.Data.DataTable.Close("dtBinsAndQtyND")
+		
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub("Main_Unload")
+	F.Intrinsic.Control.EndTry	
+Program.Sub.CreateBins.End
+
+Program.Sub.TransferQty.Start
+F.Intrinsic.Control.Try
+	
+		V.Local.sError.Declare
+		V.Local.sIorR.Declare
+		V.Local.i.Declare
+		V.Local.sText.Declare
+		V.Local.sFilePath.Declare
+		V.Local.sFileName.Declare
+		V.Local.sTest.Declare
+		V.Local.iNegQty.Declare
+		V.Local.sPSQL.Declare
+		V.Global.iCnt.Declare
+		
+		'f.Intrinsic.Control.CallSub(UpdateCostofNewPart)
+		
+		F.Intrinsic.Control.For(V.Local.i, 0, V.DataTable.dtBinsAndQty.RowCount--)
+			F.Intrinsic.Control.CallSub("GetPartCost","PART",V.Global.sPartInfo(0).Trim,"LOCATION",V.Global.sPartInfo(1).Trim,"BIN",V.DataTable.dtBinsAndQty(V.Local.i).BIN!FieldValTrim,"LOT",V.DataTable.dtBinsAndQty(V.Local.i).LOT!FieldValTrim,"HEAT",V.DataTable.dtBinsAndQty(V.Local.i).HEAT!FieldValTrim,"SERIAL",V.DataTable.dtBinsAndQty(V.Local.i).SERIAL_NUMBER!FieldValTrim)
+			'Receipt for Non-Nettable Part
+			F.Intrinsic.Control.If(V.Local.sText, =, "")
+				F.Intrinsic.String.Build("{0},,{1},{2},NonNettable,{3},{4},{5},{6},R,,{7},Y,,,,", V.Global.sPartInfo(0).Trim, V.Global.sNewLoc, V.DataTable.dtBinsAndQty(V.Local.i).TransferQty!FieldVal, V.DataTable.dtBinsAndQty(V.Local.i).LOT!FieldVal, V.DataTable.dtBinsAndQty(V.Local.i).BIN!FieldVal, V.DataTable.dtBinsAndQty(V.Local.i).HEAT!FieldVal, V.DataTable.dtBinsAndQty(V.Local.i).Serial_Number!FieldVal,v.Args.COST, V.Local.sText)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.String.Build("{7}{8}{0},,{1},{2},NonNettable,{3},{4},{5},{6},R,,{9},Y,,,,", V.Global.sPartInfo(0).Trim, V.Global.sNewLoc, V.DataTable.dtBinsAndQty(V.Local.i).TransferQty!FieldVal, V.DataTable.dtBinsAndQty(V.Local.i).LOT!FieldVal, V.DataTable.dtBinsAndQty(V.Local.i).BIN!FieldVal, V.DataTable.dtBinsAndQty(V.Local.i).HEAT!FieldVal, V.DataTable.dtBinsAndQty(V.Local.i).Serial_Number!FieldVal, V.Local.sText, V.Ambient.NewLine,V.Args.COST, V.Local.sText)
+			F.Intrinsic.Control.EndIf
+			
+			'Issue for OG part
+			F.Intrinsic.String.Build("{7}{8}{0},,{1},{2},NonNettable,{3},{4},{5},{6},I,,{9},Y,,,,", V.Global.sPartInfo(0).Trim, V.Global.sPartInfo(1).Trim, V.DataTable.dtBinsAndQty(V.Local.i).TransferQty!FieldVal, V.DataTable.dtBinsAndQty(V.Local.i).LOT!FieldVal, V.DataTable.dtBinsAndQty(V.Local.i).BIN!FieldVal, V.DataTable.dtBinsAndQty(V.Local.i).HEAT!FieldVal, V.DataTable.dtBinsAndQty(V.Local.i).Serial_Number!FieldVal, V.Local.sText, V.Ambient.NewLine,V.Args.COST, V.Local.sText)	
+			
+		F.Intrinsic.Control.Next(V.Local.i)
+		
+		'Build File for Callwrapper
+		F.Intrinsic.String.Build("{0}\{1}StandIss.txt", V.Caller.FilesDir, V.Caller.CompanyCode, V.Local.sFilePath)
+		F.Intrinsic.File.String2File(V.Local.sFilePath, V.Local.sText)
+		F.Intrinsic.String.Build("{0}StandIss.txt", V.Caller.CompanyCode, V.Local.sFileName)
+		
+		'Stand Alone Issue and Receipt Callwrapper
+		F.Global.CallWrapper.New("Test","Inventory.StandAloneIssueReceipts")
+		F.Global.CallWrapper.SetProperty("Test","FileName",Variable.Local.sFileName)
+		
+		F.Global.CallWrapper.Run("Test")
+
+		'Store Location of Original Part into User_Field_1 in the Item Master and store Notes into GAB_5696_Notes
+		F.Intrinsic.Control.For(V.Local.i,0,V.DataTable.dtBinsAndQty.RowCount--)
+			F.Intrinsic.String.Build("UPDATE ITEM_MASTER set USER_FIELD_1 = '{0}' where Part = '{1}' and Location = '{2}' and Bin = '{3}'", V.Global.sLoc, V.Global.sPart, V.Global.sNewLoc, V.DataTable.dtBinsAndQty(V.Local.i).BIN!FieldVal, V.Local.sPSQL)
+			F.ODBC.Connection!con.Execute(V.Local.sPSQL)
+			
+			F.Intrinsic.String.Build("INSERT INTO GAB_5696_Notes (Date_Made, UserID, Part, Loc, Bin, Quantity, Notes) VALUES (NOW(), '{0}', '{1}', '{2}', '{3}', {4}, '{5}')", V.Caller.User, V.Global.sPart, V.Global.sLoc, V.DataTable.dtBinsAndQty(V.Local.i).BIN!FieldVal, V.DataTable.dtBinsAndQty(V.Local.i).TransferQty!FieldVal, V.DataTable.dtBinsAndQty(V.Local.i).Notes!FieldVal, V.Local.sPSQL)
+			F.ODBC.Connection!con.Execute(V.Local.sPSQL)
+		F.Intrinsic.Control.Next(V.Local.i)
+		
+		V.Global.bBusy.Set(False)
+		F.Intrinsic.Control.CallSub(Refresh)
+		V.Global.bBusy.Set(True)
+		
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub("Main_Unload")
+	F.Intrinsic.Control.EndTry	
+Program.Sub.TransferQty.End
+
+Program.Sub.Cancel.Start
+	F.Intrinsic.Control.Try
+		v.Local.sError.Declare
+	
+		F.Intrinsic.Control.If(V.Global.bBusy, =, False)
+			Gui.SelectBINs..Visible(False)
+		F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub("Main_Unload")
+	F.Intrinsic.Control.EndTry
+Program.Sub.Cancel.End
+
+Program.Sub.Reset.Start
+	F.Intrinsic.Control.Try
+		F.Intrinsic.Control.If(V.Global.bBusy, =, False)
+			V.Global.bBusy.Set(True)
+			v.Local.sError.Declare
+		
+			V.Local.iRow.Declare
+			V.Local.iCol.Declare
+			
+			Gui.SelectBINs.GsGridControl1.SuspendLayout
+			
+			'Set All Transfer Quantities to 0
+			F.Intrinsic.Control.For(V.Local.iRow,0,V.DataTable.dtBinSelect.RowCount--,1)
+				Gui.SelectBINs.GsGridControl1.SetCellValueByColumnName("gvBinSelect", "TransferQty", V.Local.iRow, 0)
+				Gui.SelectBINs.GsGridControl1.SetCellValueByColumnName("gvBinSelect", "Notes", V.Local.iRow, "")
+				F.Intrinsic.Control.For(V.Local.iCol,0,6,1)
+		
+					Gui.SelectBINs.GsGridControl1.SetCellAppearance("gvBinSelect", V.Local.iCol, V.Local.iRow, "BackColor", "White")
+					
+				F.Intrinsic.Control.Next(V.Local.iCol)	
+			F.Intrinsic.Control.Next(V.Local.iRow)
+			
+			Gui.SelectBINs.GsGridControl1.ResumeLayout
+			
+			V.Global.bBusy.Set(False)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub("Main_Unload")
+	F.Intrinsic.Control.EndTry
+Program.Sub.Reset.End
+
+Program.Sub.OnXClick.Start
+	F.Intrinsic.Control.Try
+		F.Intrinsic.Control.If(V.Global.bBusy, =, False)
+			V.Global.bBusy.Set(True)	
+			
+			'Toggle True or False in X column
+			F.Intrinsic.Control.If(V.DataTable.dtNonNB(V.Args.RowIndex).Quantity!FieldVal, >, 0)
+				F.Intrinsic.Control.If(V.Args.Column, =, "X")
+					F.Intrinsic.Control.If(V.DataTable.dtNonNB(V.Args.RowIndex).X!FieldVal, =, False)
+						F.Data.DataTable.SetValue("dtNonNB", V.Args.RowIndex, V.Args.Column, True)
+					F.Intrinsic.Control.Else
+						F.Data.DataTable.SetValue("dtNonNB", V.Args.RowIndex, V.Args.Column, False)
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Else
+				F.Intrinsic.UI.Msgbox("Can't transfer back a negative quantity")
+			F.Intrinsic.Control.EndIf
+			
+			V.Global.bBusy.Set(False)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub("Main_Unload")
+	F.Intrinsic.Control.EndTry
+Program.Sub.OnXClick.End
+
+Program.Sub.LostFocus.Start
+	F.Intrinsic.Control.Try
+		V.Local.sError.Declare
+		
+		'Only run if Values of Boxes have changed
+		F.Intrinsic.Control.If(V.Global.bTopTxtBoxesHaveChanged)
+			V.Local.sPSQL.Declare
+			V.Local.sInfo.Declare
+		
+			F.Intrinsic.String.Build("Select B.Description, A.Quantity, A.Heat from Item_Master A, Inventory_MSTR B where B.Part = '{0}' and B.Location = '{1}' and A.Part = '{0}' and A.Location = '{1}' and A.Lot = '{2}' and A.Bin = '{3}'", V.Screen.Main!txtPart.Text, V.Screen.Main!txtLoc.Text, V.Screen.Main!txtLot.Text, V.Screen.Main!txtBin.Text, V.Local.sPSQL)
+			F.ODBC.Connection!con.OpenRecordSetRO("rstInfo", V.Local.sPSQL)
+			
+			F.ODBC.con!rstInfo.Record2String(V.Local.sInfo)
+			F.Intrinsic.String.Split(V.Local.sInfo, "!*!", V.Local.sInfo)
+			
+			F.Intrinsic.Control.If(V.Local.sInfo.UBound, =, 0)
+			F.Intrinsic.Control.AndIf(V.Local.sInfo, <>, "***NORETURN***")
+				F.Intrinsic.String.Split(V.Local.sInfo(0), "*!*", V.Local.sInfo)
+				
+				Gui.Main.txtDescr.Caption(V.Local.sInfo(0))
+				Gui.Main.txtQty.Caption(V.Local.sInfo(1))
+				Gui.Main.txtHeat.Caption(V.Local.sInfo(2))
+			
+			F.Intrinsic.Control.EndIf
+			
+			F.ODBC.con!rstInfo.Close
+		F.Intrinsic.Control.EndIf
+		V.Global.bTopTxtBoxesHaveChanged.Set(False)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub("Main_Unload")
+	F.Intrinsic.Control.EndTry
+Program.Sub.LostFocus.End
+
+Program.Sub.Change.Start
+	V.Global.bTopTxtBoxesHaveChanged.Set(True)
+Program.Sub.Change.End
+
+Program.Sub.TransferBack.Start
+	F.Intrinsic.Control.Try
+		V.Local.sError.Declare
+		
+		Gui.Main.progressBar1.Visible(True)
+		Gui.Main.lbl1.Visible(True)
+		
+		Gui.Main.progressBar1.Value(10)
+		
+		F.Intrinsic.Control.If(V.Global.bBusy, =, False)
+			V.Global.bBusy.Set(True)
+			
+			V.Local.i.Declare
+			V.Local.sText.Declare
+			V.Local.sFilePath.Declare
+			V.Local.sFileName.Declare
+			V.Local.sPSQL.Declare
+			v.Local.lReturn.Declare
+			v.Local.sReturn.Declare
+			
+			F.Data.DataView.Create("dtNonNB", "dvNonNB", 22, "X = True", "")
+			F.Data.DataView.ToDataTable("dtNonNB", "dvNonNB", "dtTransferBack")
+			
+			Gui.Main.progressBar1.Value(20)
+			
+			F.Intrinsic.Control.If(V.DataTable.dtTransferBack.RowCount, >, 0)
+				F.Intrinsic.Control.For(V.Local.i,0,V.DataTable.dtTransferBack.RowCount--)
+					
+					'Receipt for OG Part
+					F.Intrinsic.Control.If(V.Local.sText, =, "")
+						F.Intrinsic.String.Build("{0},,{1},{2},NonNettable,{3},{4},{5},{6},R,,0,Y,,,,", V.DataTable.dtTransferBack(V.Local.i).Part!FieldVal, V.DataTable.dtTransferBack(V.Local.i).User_Field_1!FieldVal, V.DataTable.dtTransferBack(V.Local.i).Quantity!FieldVal, V.DataTable.dtTransferBack(V.Local.i).LOT!FieldVal, V.DataTable.dtTransferBack(V.Local.i).BIN!FieldVal, V.DataTable.dtTransferBack(V.Local.i).HEAT!FieldVal, V.DataTable.dtTransferBack(V.Local.i).Serial_Number!FieldVal, V.Local.sText)
+					F.Intrinsic.Control.Else
+						F.Intrinsic.String.Build("{7}{8}{0},,{1},{2},NonNettable,{3},{4},{5},{6},R,,0,Y,,,,", V.DataTable.dtTransferBack(V.Local.i).Part!FieldVal, V.DataTable.dtTransferBack(V.Local.i).User_Field_1!FieldVal, V.DataTable.dtTransferBack(V.Local.i).Quantity!FieldVal, V.DataTable.dtTransferBack(V.Local.i).LOT!FieldVal, V.DataTable.dtTransferBack(V.Local.i).BIN!FieldVal, V.DataTable.dtTransferBack(V.Local.i).HEAT!FieldVal, V.DataTable.dtTransferBack(V.Local.i).Serial_Number!FieldVal, V.Local.sText, V.Ambient.NewLine, V.Local.sText)
+					F.Intrinsic.Control.EndIf
+					
+					Gui.Main.progressBar1.Value(50)
+			
+					'Issue for Non-Nettable part
+					F.Intrinsic.String.Build("{7}{8}{0},,{1},{2},NonNettable,{3},{4},{5},{6},I,,0,Y,,,,", V.DataTable.dtTransferBack(V.Local.i).Part!FieldVal,  V.DataTable.dtTransferBack(V.Local.i).Location!FieldVal, V.DataTable.dtTransferBack(V.Local.i).Quantity!FieldVal, V.DataTable.dtTransferBack(V.Local.i).LOT!FieldVal, V.DataTable.dtTransferBack(V.Local.i).BIN!FieldVal, V.DataTable.dtTransferBack(V.Local.i).HEAT!FieldVal, V.DataTable.dtTransferBack(V.Local.i).Serial_Number!FieldVal, V.Local.sText, V.Ambient.NewLine, V.Local.sText)	
+				
+					F.Intrinsic.String.Build("INSERT INTO GAB_5696_Notes (Date_Made, UserID, Part, Loc, Bin, Quantity, Notes) VALUES (NOW(), '{0}', '{1}', '{2}', '{3}', {4}, '{5}')", V.Caller.User, V.DataTable.dtTransferBack(V.Local.i).Part!FieldVal, V.DataTable.dtTransferBack(V.Local.i).Location!FieldVal, V.DataTable.dtTransferBack(V.Local.i).BIN!FieldVal, V.DataTable.dtTransferBack(V.Local.i).Quantity!FieldVal, "Transfer Back", V.Local.sPSQL)
+					F.ODBC.Connection!con.Execute(V.Local.sPSQL)
+				F.Intrinsic.Control.Next(V.Local.i)
+			
+				Gui.Main.progressBar1.Value(70)
+		
+				'Create text file
+				F.Intrinsic.String.Build("{0}\{1}StandIss.txt", V.Caller.FilesDir, V.Caller.CompanyCode, V.Local.sFilePath)
+				F.Intrinsic.File.String2File(V.Local.sFilePath, V.Local.sText)
+				F.Intrinsic.String.Build("{0}StandIss.txt", V.Caller.CompanyCode, V.Local.sFileName)
+				
+				'Run Callwrapper
+				F.Global.CallWrapper.New("Test","Inventory.StandAloneIssueReceipts")
+				F.Global.CallWrapper.SetProperty("Test","FileName",Variable.Local.sFileName)
+				F.Global.CallWrapper.Run("Test")
+				
+				'Delete Old Part and Bin location
+				V.Local.i.Set(0)
+				F.Intrinsic.Control.For(V.Local.i,0,V.DataTable.dtTransferBack.RowCount--)
+					'If no other records exist for this part, delete from: INVENTORY_MSTR, INVENTORY_MST2, INVENTORY_MST3, INV_CROSS_REF, INVENTORY_COST, ITEM_MASTER
+					F.Intrinsic.String.Build("SELECT COUNT(1) FROM INVENTORY_MSTR WHERE PART = '{0}' AND LOCATION = '{1}' AND QTY_ONHAND <> 0;",V.DataTable.dtTransferBack(V.Local.i).Part!FieldValTrim,V.DataTable.dtTransferBack(V.Local.i).Location!FieldVal,v.Local.sPSQL)
+					F.ODBC.Connection!con.EXECUTEANDRETURN(V.Local.sPSQL,V.Local.lReturn)
+					F.Intrinsic.Control.If(V.Local.lReturn,=,0)
+						F.Intrinsic.String.Build("DELETE FROM INVENTORY_MSTR WHERE PART = '{0}' AND LOCATION = '{1}';",V.DataTable.dtTransferBack(V.Local.i).Part!FieldValTrim,V.DataTable.dtTransferBack(V.Local.i).Location!FieldValTrim,v.Local.sPSQL)
+						F.ODBC.Connection!con.EXECUTE(V.Local.sPSQL)
+						F.Intrinsic.String.Build("DELETE FROM INVENTORY_MST2 WHERE PART = '{0}' AND LOCATION = '{1}';",V.DataTable.dtTransferBack(V.Local.i).Part!FieldValTrim,V.DataTable.dtTransferBack(V.Local.i).Location!FieldValTrim,v.Local.sPSQL)
+						F.ODBC.Connection!con.EXECUTE(V.Local.sPSQL)
+						F.Intrinsic.String.Build("DELETE FROM INVENTORY_MST3 WHERE PART = '{0}' AND LOCATION = '{1}';",V.DataTable.dtTransferBack(V.Local.i).Part!FieldValTrim,V.DataTable.dtTransferBack(V.Local.i).Location!FieldValTrim,v.Local.sPSQL)
+						F.ODBC.Connection!con.EXECUTE(V.Local.sPSQL)
+						F.Intrinsic.String.Build("DELETE FROM INV_CROSS_REF WHERE PART = '{0}' AND LOCATION = '{1}';",V.DataTable.dtTransferBack(V.Local.i).Part!FieldValTrim,V.DataTable.dtTransferBack(V.Local.i).Location!FieldValTrim,v.Local.sPSQL)
+						F.ODBC.Connection!con.EXECUTE(V.Local.sPSQL)
+						F.Intrinsic.String.Build("DELETE FROM INVENTORY_COST WHERE PART = '{0}' AND LOCN = '{1}';",V.DataTable.dtTransferBack(V.Local.i).Part!FieldValTrim,V.DataTable.dtTransferBack(V.Local.i).Location!FieldValTrim,v.Local.sPSQL)
+						F.ODBC.Connection!con.EXECUTE(V.Local.sPSQL)
+						F.Intrinsic.String.Build("DELETE FROM ITEM_MASTER WHERE PART = '{0}' AND LOCATION = '{1}';",V.DataTable.dtTransferBack(V.Local.i).Part!FieldValTrim,V.DataTable.dtTransferBack(V.Local.i).Location!FieldValTrim,v.Local.sPSQL)
+						F.ODBC.Connection!con.EXECUTE(V.Local.sPSQL)
+					F.Intrinsic.Control.EndIf
+					
+					'If no other parts are in the bin location, delete it from: BIN_MASTER
+					F.Intrinsic.String.Build("SELECT COUNT(1) FROM ITEM_MASTER WHERE LOCATION = '{0}' AND BIN = '{1}' AND QUANTITY <> 0;",V.DataTable.dtTransferBack(V.Local.i).Location!FieldValTrim,V.DataTable.dtTransferBack(V.Local.i).BIN!FieldValTrim,V.Local.sPSQL)
+					F.ODBC.Connection!con.EXECUTEANDRETURN(V.Local.sPSQL,V.Local.lReturn)
+					F.Intrinsic.Control.If(V.Local.lReturn,=,0)
+						F.Intrinsic.String.Build("DELETE FROM BIN_MASTER WHERE LOCATION = '{0}' AND BIN = '{1}';",V.DataTable.dtTransferBack(V.Local.i).Location!FieldValTrim,V.DataTable.dtTransferBack(V.Local.i).BIN!FieldValTrim,V.Local.sPSQL)
+						F.ODBC.Connection!con.EXECUTE(V.Local.sPSQL)
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.Next(V.Local.i)
+				
+				Gui.Main.progressBar1.Value(90)
+		
+				F.Data.DataTable.Close("dtTransferBack")
+			F.Intrinsic.Control.EndIf
+			
+			V.Global.bBusy.Set(False)
+			
+			F.Intrinsic.Control.CallSub(Refresh)
+			
+		F.Intrinsic.Control.EndIf
+		
+		Gui.Main.progressBar1.Value(100)
+		
+		Gui.Main.progressBar1.Visible(False)
+		Gui.Main.lbl1.Visible(False)
+		Gui.Main.progressBar1.Value(0)
+		
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub("Main_Unload")
+	F.Intrinsic.Control.EndTry
+Program.Sub.TransferBack.End
+
+Program.Sub.History.Start
+	F.Intrinsic.Control.Try
+		V.Local.sError.Declare
+		F.Intrinsic.Control.If(V.Global.bBusy, =, False)
+			V.Global.bBusy.Set(True)
+		
+			F.Data.DataTable.CreateFromSQL("dtHistory","con","Select Date_Made as 'Date Made', RTrim(UserID) as 'User ID', RTrim(Part) as Part, RTrim(Loc) as Loc, RTrim(Bin) Bin, Quantity, RTrim(Notes) as Notes from GAB_5696_Notes ORDER BY Date_Made DESC", True)
+			
+			F.Intrinsic.Control.CallSub(gvHistory)
+			
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub("Main_Unload")
+	F.Intrinsic.Control.EndTry
+Program.Sub.History.End
+
+Program.Sub.gvHistory.Start
+	F.Intrinsic.Control.Try
+		V.Local.sError.Declare
+			
+		Gui.FormHistory.GsGridControl1.AddGridviewFromDatatable("gvHistory", "dtHistory")
+		
+		'Width
+		Gui.FormHistory.GsGridControl1.SetColumnProperty("gvHistory","Date Made", "Width", 90)
+		Gui.FormHistory.GsGridControl1.SetColumnProperty("gvHistory","User ID", "Width", 60)
+		Gui.FormHistory.GsGridControl1.SetColumnProperty("gvHistory","Part", "Width", 70)
+		Gui.FormHistory.GsGridControl1.SetColumnProperty("gvHistory","Loc", "Width", 10)
+		Gui.FormHistory.GsGridControl1.SetColumnProperty("gvHistory","Bin", "Width", 40)
+		Gui.FormHistory.GsGridControl1.SetColumnProperty("gvHistory","Quantity", "Width", 50)
+		Gui.FormHistory.GsGridControl1.SetColumnProperty("gvHistory","Notes", "Width", 150)
+		
+		'AllowEdit
+		Gui.FormHistory.GsGridControl1.SetColumnProperty("gvHistory", "Date Made", "AllowEdit", False)
+		Gui.FormHistory.GsGridControl1.SetColumnProperty("gvHistory", "User ID", "AllowEdit", False)
+		Gui.FormHistory.GsGridControl1.SetColumnProperty("gvHistory", "Part", "AllowEdit", False)
+		Gui.FormHistory.GsGridControl1.SetColumnProperty("gvHistory", "Loc", "AllowEdit", False)
+		Gui.FormHistory.GsGridControl1.SetColumnProperty("gvHistory", "Bin", "AllowEdit", False)
+		Gui.FormHistory.GsGridControl1.SetColumnProperty("gvHistory", "Quantity", "AllowEdit", False)
+		Gui.FormHistory.GsGridControl1.SetColumnProperty("gvHistory", "Notes", "AllowEdit", False)
+		
+		'Date - DisplayCustomTime
+		Gui.FormHistory.GsGridControl1.SetColumnProperty("gvHistory","Date Made", "DisplayCustomDatetime", "G")
+		
+		'Quantity - DisplayCustomNumeric
+		Gui.FormHistory.GsGridControl1.SetColumnProperty("gvHistory", "Quantity", "DisplayCustomNumeric", "0.")
+		
+		Gui.FormHistory.GsGridControl1.MainView("gvHistory")
+		
+		Gui.FormHistory..Show
+		
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub("Main_Unload")
+	F.Intrinsic.Control.EndTry	
+Program.Sub.gvHistory.End
+
+Program.Sub.UnLoad_History.Start
+	Gui.FormHistory..Visible(False)
+	F.Data.DataTable.Close("dtHistory")
+	V.Global.bBusy.Set(False)
+Program.Sub.UnLoad_History.End
+
+Program.Sub.Main_UnLoad.Start
+	F.ODBC.Connection!con.Close
+	F.Intrinsic.Control.End
+Program.Sub.Main_UnLoad.End
+
+Program.Sub.UpdateCostofNewPart.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sShip.Declare
+	V.Local.sIss.Declare
+	V.Local.sSQL.Declare
+	V.Local.sCost.Declare
+	V.Local.sMatl.Declare
+	V.Local.sLabor.Declare
+	V.Local.sOverhead.Declare
+	V.Local.sOutside.Declare
+	V.Local.sFreight.Declare
+	V.Local.sOther.Declare
+	V.Local.sPart.Declare
+	V.Local.sLoc.Declare
+	V.Local.iCnt.Declare
+		
+	F.Global.General.ReadOption("400380","0","0","0000",V.Local.sShip)
+	F.Global.General.ReadOption("400400","0","0","0000",V.Local.sIss)
+
+		F.Intrinsic.Control.If(v.Local.sShip,=,"True",OR,v.Local.sIss,=,"True")
+			F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtBinsAndQty.RowCount--,1)
+			
+				F.Intrinsic.String.Build("SELECT PART,LOCATION,UNIT_COST,MATL_COST,LABOR_COST,OVHD_COST,OUTS_COST,FRGT_COST,OTH_COST FROM V_ITEM_MASTER WHERE PART = '{0}' AND LOCATION = '{1}' AND LOT = '{2}' AND BIN = '{3}' AND HEAT  = '{4}' AND SERIAL_NUMBER  = '{5}'",V.Global.sPartInfo(0),v.Global.sPartInfo(1),V.DataTable.dtBinsAndQty(V.Local.iCnt).LOT!FieldVal, V.DataTable.dtBinsAndQty(V.Local.iCnt).BIN!FieldVal, V.DataTable.dtBinsAndQty(V.Local.iCnt).HEAT!FieldVal, V.DataTable.dtBinsAndQty(V.Local.iCnt).Serial_Number!FieldVal,v.Local.sSQL)
+				F.Intrinsic.Control.If(V.DataTable.dtUpdateCost.Exists)
+					F.Data.DataTable.Close("dtUpdateCost")
+				F.Intrinsic.Control.EndIf
+				F.Data.DataTable.CreateFromSQL("dtUpdateCost","con",V.Local.sSQL,True)
+				
+				V.Local.sCost.Set(V.DataTable.dtUpdateCost(0).UNIT_COST!FieldValFloat)
+				V.Local.sMatl.Set(V.DataTable.dtUpdateCost(0).MATL_COST!FieldValFloat)
+				V.Local.sLabor.Set(V.DataTable.dtUpdateCost(0).LABOR_COST!FieldValFloat)
+				V.Local.sOverhead.Set(V.DataTable.dtUpdateCost(0).OVHD_COST!FieldValFloat)
+				V.Local.sOutside.Set(V.DataTable.dtUpdateCost(0).OUTS_COST!FieldValFloat)
+				V.Local.sFreight.Set(V.DataTable.dtUpdateCost(0).FRGT_COST!FieldValFloat)
+				V.Local.sOther.Set(V.DataTable.dtUpdateCost(0).OTH_COST!FieldValFloat)
+				
+				F.Intrinsic.String.Build("INSERT INTO ITEM_MASTER (PART,LOCATION,LOT,BIN,HEAT,SERIAL_NUMBER,UNIT_COST,MATL_COST,LABOR_COST,OVHD_COST,OUTS_COST,FRGT_COST,OTH_COST) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}')",V.Global.sPartInfo(0),v.Global.sNewLoc,V.DataTable.dtBinsAndQty(V.Local.iCnt).LOT!FieldVal, V.DataTable.dtBinsAndQty(V.Local.iCnt).BIN!FieldVal, V.DataTable.dtBinsAndQty(V.Local.iCnt).HEAT!FieldVal, V.DataTable.dtBinsAndQty(V.Local.iCnt).Serial_Number!FieldVal,V.Local.sCost,V.Local.sMatl,V.Local.sLabor,V.Local.sOverhead,V.Local.sOutside,V.Local.sFreight,V.Local.sOther,V.Local.sSQL)
+				F.ODBC.Connection!con.Execute(v.Local.sSQL)
+				F.Intrinsic.String.Build("UPDATE INVENTORY_COST SET COST = '{0}', MATL = '{1}', LABOR = '{2}', OVHD = '{3}', OUTS = '{4}', FREIGHT = '{5}', OTH = '{6}' WHERE PART  = '{7}' AND LOCN = '{8}'",V.Local.sCost,V.Local.sMatl,V.Local.sLabor,V.Local.sOverhead,V.Local.sOutside,V.Local.sFreight,V.Local.sOther,V.Global.sPartInfo(0),V.Global.sNewLoc,V.Local.sSQL)
+				F.ODBC.Connection!con.Execute(v.Local.sSQL)
+				F.Intrinsic.String.Build("UPDATE INVENTORY_MSTR SET AMT_COST = '{0}' WHERE PART  = '{1}' AND LOCATION = '{2}'",V.Local.sCost,V.Global.sPartInfo(0),V.Global.sNewLoc,V.Local.sSQL)
+				F.ODBC.Connection!con.Execute(v.Local.sSQL)
+				
+			F.Intrinsic.Control.Next(V.Local.iCnt)
+		F.Intrinsic.Control.Else
+		
+			F.Intrinsic.String.Build("SELECT PART,LOCN,COST,MATL,LABOR,OVHD,OUTS,FREIGHT,OTH FROM V_INVENTORY_COST WHERE PART = '{0}' AND LOCN = '{1}' ",V.Global.sPartInfo(0),v.Global.sPartInfo(1),v.Local.sSQL)
+			F.Intrinsic.Control.If(V.DataTable.dtUpdateCost.Exists)
+				F.Data.DataTable.Close("dtUpdateCost")
+			F.Intrinsic.Control.EndIf
+			F.Data.DataTable.CreateFromSQL("dtUpdateCost","con",V.Local.sSQL,True)
+			
+			V.Local.sCost.Set(V.DataTable.dtUpdateCost(0).COST!FieldValFloat)
+			V.Local.sMatl.Set(V.DataTable.dtUpdateCost(0).MATL!FieldValFloat)
+			V.Local.sLabor.Set(V.DataTable.dtUpdateCost(0).LABOR!FieldValFloat)
+			V.Local.sOverhead.Set(V.DataTable.dtUpdateCost(0).OVHD!FieldValFloat)
+			V.Local.sOutside.Set(V.DataTable.dtUpdateCost(0).OUTS!FieldValFloat)
+			V.Local.sFreight.Set(V.DataTable.dtUpdateCost(0).FREIGHT!FieldValFloat)
+			V.Local.sOther.Set(V.DataTable.dtUpdateCost(0).OTH!FieldValFloat)
+			V.Local.sPart.Set(V.Global.sPartInfo(0))
+			V.Local.sLoc.Set(V.Global.sNewLoc)
+					
+			F.Intrinsic.String.Build("UPDATE INVENTORY_COST SET COST = '{0}', MATL = '{1}', LABOR = '{2}', OVHD = '{3}', OUTS = '{4}', FREIGHT = '{5}', OTH = '{6}' WHERE PART  = '{7}' AND LOCN = '{8}'",V.Local.sCost,V.Local.sMatl,V.Local.sLabor,V.Local.sOverhead,V.Local.sOutside,V.Local.sFreight,V.Local.sOther,V.Local.sPart.Trim,V.Local.sLoc,V.Local.sSQL)
+			F.ODBC.Connection!con.Execute(v.Local.sSQL)
+			F.Intrinsic.String.Build("UPDATE INVENTORY_MSTR SET AMT_COST = '{0}' WHERE PART  = '{1}' AND LOCATION = '{2}'",V.Local.sCost,V.Local.sPart.Trim,V.Local.sLoc,V.Local.sSQL)
+			F.ODBC.Connection!con.Execute(v.Local.sSQL)
+			
+		F.Intrinsic.Control.EndIf
+				
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub("Main_Unload")
+F.Intrinsic.Control.EndTry
+
+
+Program.Sub.UpdateCostofNewPart.End
+
+Program.Sub.GetPartCost.Start
+'INCOMING: PART, LOCATION, BIN, LOT, HEAT, SERIAL
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sShip.Declare
+	V.Local.sIss.Declare
+	V.Local.sSQL.Declare
+	V.Local.sCost.Declare
+	V.Local.sMatl.Declare
+	V.Local.sLabor.Declare
+	V.Local.sOverhead.Declare
+	V.Local.sOutside.Declare
+	V.Local.sFreight.Declare
+	V.Local.sOther.Declare
+	V.Local.sPart.Declare
+	V.Local.sLoc.Declare
+	V.Local.iCnt.Declare
+		
+	F.Global.General.ReadOption("400380","0","0","0000",V.Local.sShip)
+	F.Global.General.ReadOption("400400","0","0","0000",V.Local.sIss)
+
+		F.Intrinsic.Control.If(v.Local.sShip,=,"True",OR,v.Local.sIss,=,"True")
+			F.Intrinsic.String.Build("SELECT PART,LOCATION,UNIT_COST FROM V_ITEM_MASTER WHERE PART = '{0}' AND LOCATION = '{1}' AND LOT = '{2}' AND BIN = '{3}' AND HEAT  = '{4}' AND SERIAL_NUMBER  = '{5}'",V.Args.PART,V.Args.LOCATION,V.Args.LOT, V.Args.BIN, V.Args.HEAT, V.Args.SERIAL,v.Local.sSQL)
+			F.Intrinsic.Control.If(V.DataTable.dtUpdateCost.Exists)
+				F.Data.DataTable.Close("dtUpdateCost")
+			F.Intrinsic.Control.EndIf
+			F.Data.DataTable.CreateFromSQL("dtUpdateCost","con",V.Local.sSQL,True)
+			
+			V.Local.sCost.Set(V.DataTable.dtUpdateCost(0).UNIT_COST!FieldValFloat)
+		F.Intrinsic.Control.Else
+		
+			F.Intrinsic.String.Build("SELECT COST FROM V_INVENTORY_COST WHERE PART = '{0}' AND LOCN = '{1}' ",V.Args.PART,V.Args.LOCATION,v.Local.sSQL)
+			F.Intrinsic.Control.If(V.DataTable.dtUpdateCost.Exists)
+				F.Data.DataTable.Close("dtUpdateCost")
+			F.Intrinsic.Control.EndIf
+			F.Data.DataTable.CreateFromSQL("dtUpdateCost","con",V.Local.sSQL,True)
+			
+			V.Local.sCost.Set(V.DataTable.dtUpdateCost(0).COST!FieldValFloat)
+		F.Intrinsic.Control.EndIf
+		
+		f.Intrinsic.Variable.AddRV("COST",V.Local.sCost)
+				
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub("Main_Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.GetPartCost.End
